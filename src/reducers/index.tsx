@@ -10,10 +10,12 @@
 import {combineReducers} from 'redux';
 import customers from './customerReducer';
 import drivers from './driverReducer';
+import deliveryRequests from './deliveryRequestReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 import { routerReducer } from 'react-router-redux'
 
 const rootReducer = combineReducers({
+    deliveryRequests,
     drivers,
     customers,
     ajaxCallsInProgress,

@@ -7,31 +7,31 @@
 /// <reference path="../../typings/index.d.ts"/>
 "use strict";
 
-import DriverApi from '../api/driversApi';
+import DeliveryRequestApi from '../api/deliveryRequestApi';
 import * as types from './actionTypes';
 import {beginAjaxCall} from './ajaxStatusActions';
 
-export function loadDriverSuccess(drivers) {
-    return {type: types.LOAD_DRIVERS_SUCCESS, drivers};
+export function loadDeliveryRequestSuccess(deliveryRequests) {
+    return {type: types.LOAD_DELIVERYREQUESTS_SUCCESS, deliveryRequests};
 }
 
-export function createDriverSuccess(driver) {
-    return {type: types.CREATE_DRIVER_SUCCESS, driver};
+export function createDeliveryRequestSuccess(deliveryRequest) {
+    return {type: types.CREATE_DELIVERYREQUEST_SUCCESS, deliveryRequest};
 }
 
-export function deleteDriverSuccess(driver) {
-    return {type: types.DELETE_DRIVER_SUCCESS, driver};
+export function deleteDeliveryRequestSuccess(deliveryRequest) {
+    return {type: types.DELETE_DELIVERYREQUEST_SUCCESS, deliveryRequest};
 }
 
-export function updateDriverSuccess(driver) {
-    return {type: types.UPDATE_DRIVER_SUCCESS, driver};
+export function updateDeliveryRequestSuccess(deliveryRequest) {
+    return {type: types.UPDATE_DELIVERYREQUEST_SUCCESS, deliveryRequest};
 }
 
-export function loadDrivers() {
+export function loadDeliveryRequests() {
     return dispatch => {
         dispatch(beginAjaxCall());
-        return DriverApi.getAllDrivers().then(drivers => {
-            dispatch(loadDriverSuccess(drivers));
+        return DeliveryRequestApi.getAllDeliveryRequests().then(deliveryRequests => {
+            dispatch(loadDeliveryRequestSuccess(deliveryRequests));
         })
 
         .catch(error => {
@@ -40,12 +40,12 @@ export function loadDrivers() {
     };
 }
 
-export function createDriver(driver) {
+export function createDeliveryRequest(deliveryRequest) {
     return dispatch => {
         dispatch(beginAjaxCall());
-        return DriverApi.saveDriver(driver)
-        .then(driver => {
-            dispatch(createDriverSuccess(driver));
+        return DeliveryRequestApi.saveDeliveryRequest(deliveryRequest)
+        .then(deliveryRequest => {
+            dispatch(createDeliveryRequestSuccess(deliveryRequest));
         })
         .catch(error => {
             throw (error);
@@ -53,12 +53,12 @@ export function createDriver(driver) {
     };
 }
 
-export function updateDriver(driver) {
+export function updateDeliveryRequest(deliveryRequest) {
     return dispatch => {
         dispatch(beginAjaxCall());
-        return DriverApi.saveDriver(driver)
+        return DeliveryRequestApi.saveDeliveryRequest(deliveryRequest)
         .then(author => {
-            dispatch(updateDriverSuccess(driver));
+            dispatch(updateDeliveryRequestSuccess(deliveryRequest));
         })
         .catch(error => {
             throw (error);
@@ -66,13 +66,13 @@ export function updateDriver(driver) {
     };
 }
 
-export function deleteDriver(id) {
+export function deleteDeliveryRequest(id) {
     return dispatch => {
         dispatch(beginAjaxCall());
-        return DriverApi.deleteDriver(id)
-        .then(deletedDriver => {
-            console.log('driverActions deletedDriver', deletedDriver);
-            dispatch(deleteDriverSuccess(deletedDriver));
+        return DeliveryRequestApi.deleteDeliveryRequest(id)
+        .then(deletedDeliveryRequest => {
+            console.log('deliveryRequestActions deletedDeliveryRequest', deletedDeliveryRequest);
+            dispatch(deleteDeliveryRequestSuccess(deletedDeliveryRequest));
         })
         .catch(error => {
             throw (error);

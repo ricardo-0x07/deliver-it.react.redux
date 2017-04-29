@@ -10,7 +10,7 @@
 import * as types from '../redux-actions/actionTypes';
 import initialState from './initialState';
 
-export default function customerReducer(state = initialState.drivers, action) {
+export default function driverReducer(state = initialState.drivers, action) {
     switch (action.type) {
     case types.LOAD_DRIVERS_SUCCESS:
         return action.drivers;

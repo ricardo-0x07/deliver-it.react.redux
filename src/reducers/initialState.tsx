@@ -8,6 +8,7 @@
 "use strict";
 
 export default {
+    deliveryRequests: [],
     drivers: [],
     customers: [],
     ajaxCallsInProgress: 0
